@@ -56,7 +56,7 @@ practice/
 ├── server.js              # entry point: listen PORT, graceful shutdown
 ├── package.json
 ├── package-lock.json      # tracking chính xác version của packages
-├── .env                   # biến môi trường (đã ignore, không commit)
+├── .env                   # biến môi trường (local; đang ignore, không commit)
 ├── .gitignore
 └── STATUS.md              # tiến độ theo DAY
 ```
