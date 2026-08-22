@@ -2,7 +2,7 @@
 
 > Source: Tips Javascript Youtube
 >
-> Target: One video &amp; Practicing Session per DAY
+> Mục tiêu: mỗi ngày 1 video + 1 session thực hành. Tiến độ từng DAY được ghi tại file này, notes chi tiết nằm trong [`docs/`](./docs).
 
 
 
