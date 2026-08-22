@@ -28,36 +28,13 @@ NOTES
 
 DAY 2: Những folders và packages cần thiết khi khởi tạo Project 
 
-UPDATED DATE: 21/08/2026
+UPDATED DATE: 22/08/2026
 
-STATUS: INPROGRESS
+STATUS: DONE
 
-NOTES
+NOTES: @docs/day-2.md
 
-- Init project 
-  - node version: `v19.1.0`, npm version: `v8.19.3` (using `nvm` install &amp; manage &amp; switch versions)
-  - npm init -y
-  - packages.json
-  - docs/
-  - src/
-    - controllers/
-    - models/
-    - services/
-    - utils/
-    - configs/
-  - server.js
-  
-  - .gitignore
-- {root_project}/packages-lock.json: tracking installed packages' versions
-
-- node_modules: add to .gitignore
-- .env: add to .gitignore
-- Installing packages (npm i `x_package` --save)
-  - express
-
-
-
-&nbsp;
+BRANCH: day-2
 
 ---
 
