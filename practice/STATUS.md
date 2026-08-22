@@ -2,7 +2,7 @@
 
 > Source: Tips Javascript Youtube
 >
-> Mục tiêu: mỗi ngày 1 video + 1 session thực hành. Tiến độ từng DAY được ghi tại [`STATUS.md`](./STATUS.md), notes chi tiết nằm trong [`docs/`](./docs).
+> Mục tiêu: mỗi ngày 1 video + 1 session thực hành. Tiến độ từng DAY được ghi tại file này, notes chi tiết nằm trong [`docs/`](./docs).
 
 
 
