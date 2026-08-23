@@ -21,7 +21,7 @@ const checkOverload = () => {
 
     // Giả sử máy này chịu được 5 connections của mongodb 
     // Let's say maximum number of connections based on number of cores
-    const maxConnections = numCores * 5; // Giả sử: mỗi core chịu đực 5 connections 
+    const maxConnections = numCores * 5; // Giả sử: mỗi core chịu được 5 connections
 
     console.log(`>>> Activate connections: ${numConnection}`);
     console.log(`>>> Memory usage: ${usedMemoryUsage}`);
