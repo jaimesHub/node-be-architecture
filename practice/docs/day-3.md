@@ -10,7 +10,7 @@
 4. Thông báo khi server QUÁ TẢI connect
 5. Có nên `disConnect()` liên tục hay không ?
 6. PoolSize là gì ? Vì sao lại quan trọng ?
-7. Nếu vượt quá kết nội PoolSize ?
+7. Nếu vượt quá kết nối PoolSize ?
 
 ---
 
