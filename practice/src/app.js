@@ -6,15 +6,12 @@ const app = express();
 
 // init middlewares
 app.use(morgan('dev'));
-// morgan('dev')
-// morgan('combined') - for production environment
-// morgan('common') - apache standard
-// morgan('short')
-// morgan('tiny')
 app.use(helmet());
 app.use(compression());
 
 // init db
+// require('./dbs/init.mongodb.lv0');
+require('./dbs/init.mongodb');
 
 // init routes
 app.get('/', (req, res, next) => {

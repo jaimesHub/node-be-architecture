@@ -4,7 +4,7 @@
 >
 > Mục tiêu: mỗi ngày 1 video + 1 session thực hành. Tiến độ từng DAY được ghi tại file này, notes chi tiết nằm trong [`docs/`](./docs).
 
-
+> Workflow: Check @docs/manual-workflow.md - TBD
 
 ---
 
@@ -40,5 +40,20 @@ BRANCH: day-2
 
 DAY 3: Connect MongoDB to Node.js Using Mongoose và 7 điều cần triển khai trong hệ thống
 
-TBD 
+UPDATED DATE: 23/08/2026
 
+NOTES: @docs/day-3.md
+
+STATUS: DONE
+
+BRANCH: day-3
+
+---
+
+DAY 4: TBD
+
+UPDATED DATE: 23/08/2026
+
+STATUS: TODO
+
+BRANCH: TBD
