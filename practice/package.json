@@ -19,6 +19,7 @@
   "devDependencies": {
     "compression": "1.8.1",
     "helmet": "8.3.0",
+    "mongoose": "9.9.3",
     "morgan": "1.11.0"
   }
 }
