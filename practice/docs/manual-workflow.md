@@ -41,6 +41,10 @@ BRANCH: TBD
 STEP 4: Let's coding
 
 - nvm use v19.1.0
+- @day-x.md 
+  - summary 
+  - taking notes
+- Commit each part that you think is important to log
 
 ---
 
@@ -49,5 +53,7 @@ STEP 5: Coding finished
 - Updating @practice/STATUS.md file (Manually updating)
 - Openning Claude Code
   - Add context such as providing @practice/STATUS.md, @practice/docs/day-x.md files + using git diff on the current branch (day-x) to summary what've DONE
-  - Use above research to create a new PR to merge into main branch
+  - Create a description for PR first
+  - User review -&gt; Reject/Approve
+  - Approve -&gt; Use above research to create a new PR to merge into main branch
 

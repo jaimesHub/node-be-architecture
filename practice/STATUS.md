@@ -50,10 +50,27 @@ BRANCH: day-3
 
 ---
 
-DAY 4: TBD
+DAY 4: Lịch sử của `.env` và cách kết hợp **env & configs** cho dự án **nhiều** môi trường & members
 
-UPDATED DATE: 23/08/2026
+UPDATED DATE: 24/08/2026
+
+NOTES: @docs/day-4.md
+
+STATUS: DONE
+
+BRANCH: day-4
+
+---
+
+DAY 5: TBD
+
+UPDATED DATE: 24/08/2026
+
+NOTES: TBD
 
 STATUS: TODO
 
 BRANCH: TBD
+
+---
+

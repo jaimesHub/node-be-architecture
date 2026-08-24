@@ -1,5 +1,6 @@
 'use strict'
 const { countConnect, checkOverload } = require('../helpers/check.connect');
+const { db: { host, name, port }} = require('../configs/config.mongodb');
 
 class Database {
   constructor() {
@@ -8,7 +9,7 @@ class Database {
 
   connect(type='mongodb') {
     const mongoose = require('mongoose');
-    const connectString = `mongodb://127.0.0.1:27017/shopDEV`;
+    const connectString = `mongodb://${host}:${port}/${name}`;
 
     if (1 === 1) {
       mongoose.set('debug', true);
@@ -17,7 +18,8 @@ class Database {
 
     mongoose.connect(connectString)
       .then(_ => {
-        console.log(`>>> [Applied SINGLETON] MongoDB Connected!`)
+        console.log(`>>> [Applied SINGLETON] MongoDB Connected!`);
+        console.log(`>>> connectString: ${connectString}`);
         // countConnect(); // 3. Kiểm tra hệ thống có bao nhiêu CONNECT ?
         // checkOverload(); // 4. Thông báo khi server QUÁ TẢI connect
       })
