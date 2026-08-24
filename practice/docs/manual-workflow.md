@@ -44,7 +44,7 @@ STEP 4: Let's coding
 - @day-x.md 
   - summary 
   - taking notes
-- Commit each of part that you think it's important to log
+- Commit each part that you think is important to log
 
 ---
 
