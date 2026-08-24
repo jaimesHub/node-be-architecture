@@ -22,7 +22,7 @@
   1. Tách biệt thông tin nhạy cảm khỏi codebase , clean code, dễ maintain
   2. Hoàn toàn có thể không cần đến file này cũng được, nhưng không chuyên nghiệp và best practice cho lắm
 3. Phân biệt `.env` file và `config` file khác nhau như thế nào ?
-  1. `config` files được sử dụng để lưu trữ, cài đặt và tuỳ chọn file cấu hình của dự án. Được lưu ở dưới định dạng json/xml -&gt; Chính: kiểm soát , lưu trữ những cài đặt ứng dụng của dự án mà có thể kiểm soát được codebase, phiên bản
+  1. `config` files được sử dụng để lưu trữ, cài đặt và tuỳ chọn file cấu hình của dự án. Được lưu ở dưới định dạng json/xml -> Chính: kiểm soát , lưu trữ những cài đặt ứng dụng của dự án mà có thể kiểm soát được codebase, phiên bản
   2. `.env` files được dùng để lưu trữ thông tin nhạy cảm
   3. Lưu ý: Đảm bảo không lưu trữ thông tin nhạy cảm ở trong các files `config`
 4. Thực hành về việc `config` file có thể linh hoạt giữa `local` , `cloud` và `team` thì cần xử lý `.env` file như thế nào ?
