@@ -50,7 +50,7 @@ BRANCH: day-3
 
 ---
 
-DAY 4: Lịch sử của `.env` và cách kết hợp **env &amp; configs** cho dự án **nhiều** môi trường &amp; members 
+DAY 4: Lịch sử của `.env` và cách kết hợp **env & configs** cho dự án **nhiều** môi trường & members
 
 UPDATED DATE: 24/08/2026
 
