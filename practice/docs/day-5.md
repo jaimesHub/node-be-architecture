@@ -78,7 +78,7 @@ NOTES
       ```
   4. update @src/app.js
     1. app.use(express.json());
-    2. app.use(express.urlencoded({extends: true}));
+    2. app.use(express.urlencoded({ extended: true }));
   5. update @src/controllers/access.controller.js (AccessController)
     ```javascript
     const result = await AccessService.signUp(req.body);
