@@ -1,5 +1,6 @@
 'use strict'
 
+const AccessService = require('../services/access.service');
 class AccessController {
     signUp = async (req, res, next) => {
         try {
@@ -16,10 +17,11 @@ class AccessController {
              * 503 SERVICE UNAVAILABLE
              * 504 GATEWAY TIMEOUT
              */
-            return res.status(201).json({
-                code: '20001',
-                metadata: { userId: 1 },
-                message: 'Sign up successfully!',
+            const result = await AccessService.signUp(req.body);
+            return res.status(result.code).json({
+                code: result.code,
+                metadata: result.metadata,
+                message: result.message,
             });
         } catch (error) {
             next(error);

@@ -3,6 +3,9 @@
 const shopModel = require('../models/shop.model');
 const bcrypt = require('bcrypt');
 const crypto = require('crypto');
+const KeyTokenService = require('./keyToken.service');
+const { createTokenPair } = require('../auth/authUtils');
+const { getInfoData } = require('../utils');
 
 const SHOP_ROLES = {
     SHOP: 'SHOP',
@@ -19,7 +22,7 @@ class AccessService {
 
             if (existingShop) {
                 return {
-                    code: 'xxxx',
+                    code: 409,
                     message: 'Shop already exists with this email!',
                     status: 'error',
                 }
@@ -42,17 +45,75 @@ class AccessService {
                 // why? - hacker can not generate valid tokens without privateKey, and hacker can not verify tokens without publicKey
                 const { privateKey, publicKey } = crypto.generateKeyPairSync('rsa', {
                     modulusLength: 4096,
+                    publicKeyEncoding: {
+                        type: 'pkcs1',
+                        format: 'pem',
+                    },
+                    privateKeyEncoding: {
+                        type: 'pkcs1',
+                        format: 'pem',
+                    },
                 });
 
-                // save collection KeyStore with publicKey and shopId
+                // save collection KeyStore (Keys Collection) with publicKey and shopId
                 console.log('>>> [Private Key]::signUp:: ', privateKey);
                 console.log('>>> [Public Key]::signUp:: ', publicKey);
+                
+                // save publicKey to database
+                const publicKeyString = await KeyTokenService.createKeyToken({
+                    userId: newShop._id,
+                    publicKey,
+                });
+
+                if (!publicKeyString) {
+                    return {
+                        code: 500,
+                        status: 'error',
+                        message: 'publicKeyString error',
+                    }
+                };
+
+                console.log('>>> [Public Key String]::signUp:: ', publicKeyString);
+                const publicKeyObject = crypto.createPublicKey(publicKeyString);
+                console.log('>>> [Public Key Object]::signUp:: ', publicKeyObject);
+
+                // create tokens (accessToken, refreshToken) for shop - using privateKey to sign tokens
+                const tokens = await createTokenPair(
+                    { userId: newShop._id, email },
+                    publicKeyString,
+                    privateKey
+                );
+
+                if (!tokens) {
+                    return {
+                        code: 500,
+                        status: 'error',
+                        message: 'Failed to create tokens',
+                    }
+                };
+
+                // step: return result
+                return {
+                    code: 201,
+                    status: 'created',
+                    metadata: {
+                        shop: getInfoData({ fields: ['_id', 'name', 'email'], object: newShop }),
+                        tokens,
+                    },
+                    message: 'Sign up successfully!',
+                }
             }
-            // step: return result
+
+            return {
+                code: 200, // define by our documentation
+                status: 'error',
+                message: 'Failed to create new shop',
+                metadata: null,
+            }
             
         } catch (error) {
             return {
-                code: 'xxx', // define by our documentation
+                code: 500, // define by our documentation
                 message: error.message,
                 status: 'error',
             }

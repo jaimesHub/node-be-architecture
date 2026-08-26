@@ -11,7 +11,9 @@ PRE
 - nvm use v19.1.0
 - install extension: `Mongo Snippets for Node-js`  
 - extensions:  REST Client / HTTP Client (Marcel J. Kloubert), import cost
-- `npm install bcrypt --save`
+- `npm install bcrypt --save` 
+- npm install jsonwebtoken --save
+- npm i lodash --save
 
 ---
 
@@ -41,4 +43,67 @@ NOTES
   ```
 6. add `keytoken` model: @src/models/keytoken.model.js
   1. saving: userId, publicKey, refreshToken (used)
+7. key service: @src/services/keyToken.service.js
+  1. create token function
+  2. update @src/services/access.service.js
+    ```javascript
+    const publicKeyString = await KeyTokenService.createKeyToken({ userId: newShop._id, publicKey });
+    ```
+  3. add @src/auth/authUtils.js
+    1. npm install jsonwebtoken --save
+    2. createTokenPair (payload, publicKey, privateKey)
+      ```javascript
+      // create access token using private key
+      // create refresh token using private key
+      // verify token using public key
+      ```
+    3. update @src/access.service.js
+      ```javascript
+      // create tokens (accessToken, refreshToken) for shop - using privateKey to sign tokens
+      // step: return result
+      ```
+    4. Test: update @src/postman/access.post.http
+      ```http
+      @url_dev=http://localhost:3052/v1/api
+      
+      ### signup
+      POST {{url_dev}}/shop/signup
+      Content-Type: application/json
+      
+      {
+        "name": "Shop Name",
+        "email": "shop@example.com",
+        "password": "password123"
+      }
+      ```
+  4. update @src/app.js
+    1. app.use(express.json());
+    2. app.use(express.urlencoded({extends: true}));
+  5. update @src/controllers/access.controller.js (AccessController)
+    ```javascript
+    const result = await AccessService.signUp(req.body);
+    return res.status(result.code).json({
+      code: result.code,
+      metadata: result.metadata,
+      message: result.message,
+    });
+    ```
+8. Update return response while create a new shop instance
+  1. npm i lodash --save
+  2. @src/utils/index.js
+  3. getInfoData
+  4. update @src/services/access.service.js
+    ```javascript
+    // step: return result
+    return {
+      code: 201,
+      status: 'created',
+      metadata: {
+      shop: getInfoData({ fields: ['_id', 'name', 'email'], object: newShop }),
+        tokens,
+      },
+      message: 'Sign up successfully!',
+    }
+    ```
+9. TBD
 
