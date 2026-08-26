@@ -158,7 +158,7 @@ NOTES
       },
       // ...
   ```
-12. Update @src/auth/index.js
+12. Update @src/auth/authUtils.js
   ```javascript
         // create access token using publicKey key
           const accessToken = await JWT.sign(payload, publicKey, {
