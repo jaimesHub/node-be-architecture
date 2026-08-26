@@ -41,7 +41,7 @@ NOTES
   @url_dev=http://localhost:3052/v1/api
   POST {{url_dev}}/shop/signup
   ```
-6. add `keytoken` model: @src/models/keytoken.model.js
+6. add `keyToken` model: @src/models/keyToken.model.js
   1. saving: userId, publicKey, refreshToken (used)
 7. key service: @src/services/keyToken.service.js
   1. create token function
