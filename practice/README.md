@@ -71,7 +71,7 @@ Dừng MongoDB khi không dùng nữa: `colima stop` (giải phóng RAM).
 Kiểm tra nhanh:
 
 ```bash
-curl http://localhost:3000
+curl http://localhost:3052
 # {"message":"Welcome to BE NodeJS Architecture Project!"}
 ```
 
@@ -82,27 +82,47 @@ practice/
 ├── docs/                          # notes theo từng DAY + workflow
 │   ├── day-2.md
 │   ├── day-3.md
+│   ├── day-4.md
+│   ├── day-5.md
 │   └── manual-workflow.md         # quy trình thủ công khi bắt đầu một DAY mới
 ├── src/
 │   ├── app.js                     # khởi tạo express app, middlewares, init db, routes
+│   ├── auth/                      # xử lý xác thực
+│   │   └── authUtils.js           # createTokenPair (JWT access token & refresh token)
 │   ├── configs/                   # config, biến môi trường
+│   │   └── config.mongodb.js      # config theo môi trường (dev / prod)
 │   ├── controllers/               # nhận request, trả response
+│   │   └── access.controller.js   # signUp (login, logout... sẽ bổ sung sau)
 │   ├── dbs/                       # khởi tạo kết nối database
-│   │   └── init.mongodb.js        # connect MongoDB theo Singleton (đang dùng ở app.js)
+│   │   ├── init.mongodb.js        # connect MongoDB theo Singleton (đang dùng ở app.js)
+│   │   ├── init.mongodb.lv0.js    # bản level 0 (chỉ để tham khảo)
+│   │   └── poolSize.mongodb.js    # thử nghiệm pool size
 │   ├── helpers/                   # hàm "uỷ quyền", tần suất dùng nhiều trong hệ thống
 │   │   └── check.connect.js       # countConnect, checkOverload
 │   ├── models/                    # schema / model tầng dữ liệu
+│   │   ├── keyToken.model.js      # lưu publicKey / privateKey / refreshToken theo shop
+│   │   └── shop.model.js          # schema Shop
+│   ├── postman/                   # file .http để test API (REST Client)
+│   │   └── access.post.http
+│   ├── routes/                    # định tuyến
+│   │   ├── index.js               # main route, mount các route con vào /v1/api
+│   │   ├── access/index.js        # signup, login, refresh token...
+│   │   └── shop/index.js
 │   ├── services/                  # business logic
+│   │   ├── access.service.js      # signUp: check email, hash password, tạo key + token
+│   │   └── keyToken.service.js    # createKeyToken: lưu key vào collection Keys
 │   └── utils/                     # hàm tiện ích thuần, khi nào cần mới gọi
+│       └── index.js               # getInfoData (lodash pick)
 ├── server.js                      # entry point: listen PORT, graceful shutdown
 ├── package.json
 ├── package-lock.json              # tracking chính xác version của packages
 ├── .env                           # biến môi trường (local; đang ignore, không commit)
+├── .env.example                   # mẫu biến môi trường để copy thành .env
 ├── .gitignore
 └── STATUS.md                      # tiến độ theo DAY
 ```
 
-Các thư mục chưa có code (`configs/`, `controllers/`, `models/`, `services/`, `utils/`) được giữ chỗ bằng `.gitkeep` để commit lên git.
+Thư mục chưa có code được giữ chỗ bằng `.gitkeep` để commit lên git (hiện chỉ còn `configs/`).
 
 ## Tiến độ
 

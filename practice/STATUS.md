@@ -62,15 +62,15 @@ BRANCH: day-4
 
 ---
 
-DAY 5: TBD
+DAY 5: Api Sign-up Shop
 
-UPDATED DATE: 24/08/2026
+UPDATED DATE: 26/08/2026
 
-NOTES: TBD
+NOTES: @docs/day-5.md
 
-STATUS: TODO
+STATUS: DONE
 
-BRANCH: TBD
+BRANCH: day-5
 
 ---
 
