@@ -39,6 +39,6 @@ NOTES
   @url_dev=http://localhost:3052/v1/api
   POST {{url_dev}}/shop/signup
   ```
-6. add `keytoken` model: @src/models/keytoken.model.js - TBD
-  1. save userId, publicKey, refreshToken 
+6. add `keytoken` model: @src/models/keytoken.model.js
+  1. saving: userId, publicKey, refreshToken (used)
 
