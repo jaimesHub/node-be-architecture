@@ -18,6 +18,10 @@ const SHOP_ROLES = {
 class AccessService {
     static signUp = async ({ name, email, password }) => {
         try {
+            if (!name || !email || !password) {
+                return { code: 400, status: 'error', message: 'name, email, and password are required' };
+            }
+
             // step: check if email already exists
             const existingShop = await shopModel.findOne({ email }).lean(); // return a plain JavaScript object instead of a Mongoose document
 
