@@ -15,9 +15,10 @@ const shopSchema = new Schema({
     },
     email:{
         type: String,
-        unique:true,
+        required: true,
+        unique: true,
         trim: true,
-    },
+    }
     password:{
         type: String,
         required:true,
