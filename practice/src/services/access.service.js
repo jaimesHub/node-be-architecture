@@ -2,7 +2,8 @@
 
 const shopModel = require('../models/shop.model');
 const bcrypt = require('bcrypt');
-const crypto = require('crypto');
+// const crypto = require('crypto');
+const crypto = require('node:crypto');
 const KeyTokenService = require('./keyToken.service');
 const { createTokenPair } = require('../auth/authUtils');
 const { getInfoData } = require('../utils');
@@ -43,45 +44,48 @@ class AccessService {
                 // create privateKey - sending to user after creating for signing tokens, DO NOT store privateKey in database/system
                 // create publicKey - saving in database/system for verifying tokens, DO NOT send publicKey to user
                 // why? - hacker can not generate valid tokens without privateKey, and hacker can not verify tokens without publicKey
-                const { privateKey, publicKey } = crypto.generateKeyPairSync('rsa', {
-                    modulusLength: 4096,
-                    publicKeyEncoding: {
-                        type: 'pkcs1',
-                        format: 'pem',
-                    },
-                    privateKeyEncoding: {
-                        type: 'pkcs1',
-                        format: 'pem',
-                    },
-                });
+                // const { privateKey, publicKey } = crypto.generateKeyPairSync('rsa', {
+                //     modulusLength: 4096,
+                //     publicKeyEncoding: {
+                //         type: 'pkcs1',
+                //         format: 'pem',
+                //     },
+                //     privateKeyEncoding: {
+                //         type: 'pkcs1',
+                //         format: 'pem',
+                //     },
+                // });
+
+                // using a simpler way to generate privateKey, publicKey
+                const privateKey = crypto.randomBytes(64).toString('hex');
+                const publicKey = crypto.randomBytes(64).toString('hex');
 
                 // save collection KeyStore (Keys Collection) with publicKey and shopId
                 console.log('>>> [Private Key]::signUp:: ', privateKey);
                 console.log('>>> [Public Key]::signUp:: ', publicKey);
                 
                 // save publicKey to database
-                const publicKeyString = await KeyTokenService.createKeyToken({
+                const keyStore = await KeyTokenService.createKeyToken({
                     userId: newShop._id,
                     publicKey,
+                    privateKey,
                 });
 
-                if (!publicKeyString) {
+                if (!keyStore) {
                     return {
                         code: 500,
                         status: 'error',
-                        message: 'publicKeyString error',
+                        message: 'Failed to create key store',
                     }
                 };
 
-                console.log('>>> [Public Key String]::signUp:: ', publicKeyString);
-                const publicKeyObject = crypto.createPublicKey(publicKeyString);
-                console.log('>>> [Public Key Object]::signUp:: ', publicKeyObject);
+                console.log('>>> [Key Store]::signUp:: ', keyStore);
 
                 // create tokens (accessToken, refreshToken) for shop - using privateKey to sign tokens
                 const tokens = await createTokenPair(
                     { userId: newShop._id, email },
-                    publicKeyString,
-                    privateKey
+                    publicKey,
+                    privateKey,
                 );
 
                 if (!tokens) {
@@ -91,6 +95,8 @@ class AccessService {
                         message: 'Failed to create tokens',
                     }
                 };
+
+                console.log('>>> [Tokens]::signUp:: ', tokens);
 
                 // step: return result
                 return {
@@ -112,6 +118,7 @@ class AccessService {
             }
             
         } catch (error) {
+            console.error('>>> [Error]::signUp:: ', error);
             return {
                 code: 500, // define by our documentation
                 message: error.message,

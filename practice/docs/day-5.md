@@ -105,5 +105,75 @@ NOTES
       message: 'Sign up successfully!',
     }
     ```
-9. TBD
+9. Update @src/services/access.service.js
+  ```javascript
+                  // create privateKey - sending to user after creating for signing tokens, DO NOT store privateKey in database/system
+                  // create publicKey - saving in database/system for verifying tokens, DO NOT send publicKey to user
+                  // why? - hacker can not generate valid tokens without privateKey, and hacker can not verify tokens without publicKey
+                  // const { privateKey, publicKey } = crypto.generateKeyPairSync('rsa', {
+                  //     modulusLength: 4096,
+                  //     publicKeyEncoding: {
+                  //         type: 'pkcs1',
+                  //         format: 'pem',
+                  //     },
+                  //     privateKeyEncoding: {
+                  //         type: 'pkcs1',
+                  //         format: 'pem',
+                  //     },
+                  // });
+  
+                  // using a simpler way to generate privateKey, publicKey
+                  const privateKey = crypto.getRandomValues(64).toString('hex');
+                  const publicKey = crypto.getRandomValues(64).toString('hex');
+  
+                  // ...
+                  // save publicKey to database
+                  const publicKeyString = await KeyTokenService.createKeyToken({
+                      userId: newShop._id,
+                      publicKey,
+                      privateKey,
+                  });
+  ```
+10. Update @src/services/keyToken.service.js
+  ```javascript
+  static createKeyToken = async ({ userId, publicKey, privateKey }) => {
+          try {
+              const tokens = await keyTokenModel.create({
+                  user: userId,
+                  publicKey,
+                  privateKey,
+              });
+              return tokens ? tokens.publicKey : null;
+          } catch (error) {
+              return error;
+          }
+      }
+  ```
+11. Update @src/models/keytoken.model.js
+  ```javascript
+      // ...
+      privateKey: {
+          type: String,
+          required: true,
+      },
+      // ...
+  ```
+12. Update @src/auth/index.js
+  ```javascript
+        // create access token using publicKey key
+          const accessToken = await JWT.sign(payload, publicKey, {
+              expiresIn: '2 days',
+          });
+        // ...
+  ```
+13.  Test: Using @src/postman/access.post.http
+
+---
+
+SUMMARY
+
+1. Sign-up SHOP: business logic flow 
+2. JWT with RSA: how to create JWT access token &amp; refresh token using the way RSA works
+3. JWT: saving pem file into MongoDB &amp; decode it
+4. Separate modules for using flexible ways
 
