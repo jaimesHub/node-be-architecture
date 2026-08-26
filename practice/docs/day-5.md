@@ -9,16 +9,24 @@ PRE
 - @practice/docs/day-5.md
 - colima list | colima start
 - nvm use v19.1.0
-- install extension: `Mongo Snippets for Node-js`
+- install extension: `Mongo Snippets for Node-js`  
+- extensions:  REST Client, import cost
 
 ---
 
 NOTES
 
-1. @src/models/shop.model.js
+1. create `SHOP` model: @src/models/shop.model.js
   ```javascript
   // key !dmbg generated schema quickly by Mongo Snippets for Node-js
   // shopSchema
   ```
-2. TBD
+2. setup API routes:
+  1. @src/routes/index.js - where imports all of routes which belong to application
+  2. @src/routes/access/index.js - where manages sign up, log in , refresh token, save token  (import &amp; use `controllers` packages)
+  3. @src/controllers/access.controller.js - where manages functions (business logics) of a specific module (example: access, shop, ...)
+  4. @src/app.js - // init routes - update importing main routes @src/routes/index.js
+3. test API: @src/postman
+  1. @src/postman/access.post.http
+4. 
 

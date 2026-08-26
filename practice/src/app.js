@@ -14,11 +14,7 @@ app.use(compression());
 require('./dbs/init.mongodb');
 
 // init routes
-app.get('/', (req, res, next) => {
-  return res.status(200).json({
-    message: 'Welcome to BE NodeJS Architecture Project!',
-  })
-});
+app.use('/', require('./routes/'));
 
 // handling errors
 
