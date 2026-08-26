@@ -74,3 +74,16 @@ BRANCH: day-5
 
 ---
 
+DAY 6: Custom Dynamic Middleware for ApiKey and Permissions
+
+UPDATED DATE: 26/08/2026
+
+NOTES: @docs/day-6.md
+
+STATUS: IN PROGRESS
+
+BRANCH: day-6
+
+---
+
+DAY 7: TBD

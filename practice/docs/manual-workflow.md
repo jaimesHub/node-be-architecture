@@ -40,7 +40,7 @@ BRANCH: TBD
 
 STEP 4: Let's coding
 
-- nvm use v19.1.0
+- git checkout -b day-X
 - @day-x.md 
   - summary 
   - taking notes
