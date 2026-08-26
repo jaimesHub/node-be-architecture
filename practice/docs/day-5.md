@@ -10,7 +10,8 @@ PRE
 - colima list | colima start
 - nvm use v19.1.0
 - install extension: `Mongo Snippets for Node-js`  
-- extensions:  REST Client, import cost
+- extensions:  REST Client / HTTP Client (Marcel J. Kloubert), import cost
+- `npm install bcrypt --save`
 
 ---
 
@@ -28,5 +29,16 @@ NOTES
   4. @src/app.js - // init routes - update importing main routes @src/routes/index.js
 3. test API: @src/postman
   1. @src/postman/access.post.http
-4. 
+4. shop module: @src/routes/shop - writing `signup` function
+  1. @src/routes/shop/index.js - create file
+  2. @src/services/access.service.js - writing `signup` function
+  3. `npm install bcrypt --save`
+  4. 
+5. update @src/postman/access.post.http
+  ```http
+  @url_dev=http://localhost:3052/v1/api
+  POST {{url_dev}}/shop/signup
+  ```
+6. add `keytoken` model: @src/models/keytoken.model.js - TBD
+  1. save userId, publicKey, refreshToken 
 
