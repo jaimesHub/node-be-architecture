@@ -12,7 +12,8 @@ class KeyTokenService {
             });
             return tokens ? tokens.publicKey : null;
         } catch (error) {
-            return error;
+            console.error('>>> [Error]::createKeyToken:: ', error);
+            return null;
         }
     }
 }
