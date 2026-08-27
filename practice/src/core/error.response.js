@@ -1,0 +1,62 @@
+'use strict'
+
+const STATUS_CODE = {
+    FORBIDDEN: 403,
+    NOT_FOUND: 404,
+    INTERNAL_SERVER_ERROR: 500,
+    CONFLICT: 409,
+    BAD_REQUEST: 400,
+};
+
+const REASON_STATUS_CODE = {
+    FORBIDDEN: 'Forbidden',
+    NOT_FOUND: 'Not Found',
+    INTERNAL_SERVER_ERROR: 'Internal Server Error',
+    CONFLICT: 'Conflict',
+    BAD_REQUEST: 'Bad Request'
+}
+
+class ErrorResponse extends Error {
+    constructor(message, status) {
+        super(message);
+        this.status = status;
+    }
+};
+
+class ConflictRequestError extends ErrorResponse {
+    constructor(message = REASON_STATUS_CODE.CONFLICT, statusCode = STATUS_CODE.CONFLICT) {
+        super(message, statusCode);
+    }
+};
+
+class BadRequestError extends ErrorResponse {
+    constructor(message = REASON_STATUS_CODE.BAD_REQUEST, statusCode = STATUS_CODE.BAD_REQUEST) {
+        super(message, statusCode);
+    }
+};
+
+class NotFoundError extends ErrorResponse {
+    constructor(message = REASON_STATUS_CODE.NOT_FOUND, statusCode = STATUS_CODE.NOT_FOUND) {
+        super(message, statusCode);
+    }
+};
+
+class ForbiddenError extends ErrorResponse {
+    constructor(message = REASON_STATUS_CODE.FORBIDDEN, statusCode = STATUS_CODE.FORBIDDEN) {
+        super(message, statusCode);
+    }
+};
+
+class InternalServerError extends ErrorResponse {
+    constructor(message = REASON_STATUS_CODE.INTERNAL_SERVER_ERROR, statusCode = STATUS_CODE.INTERNAL_SERVER_ERROR) {
+        super(message, statusCode);
+    }
+};
+
+module.exports = {
+    ConflictRequestError,
+    BadRequestError,
+    NotFoundError,
+    ForbiddenError,
+    InternalServerError,
+};

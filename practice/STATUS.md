@@ -90,8 +90,23 @@ DAY 7: Xử lý ErrorHandler trong API
 
 UPDATED DATE: 27/08/2026
 
+NOTES: @docs/day-7.md
+
+STATUS: DONE
+
+BRANCH: day-7
+
+---
+
+DAY 8: Make Your API Response use class
+
+UPDATED DATE: 27/08/2026
+
 NOTES: TBD
 
-STATUS: TBD
+STATUS: TODO
 
 BRANCH: TBD
+
+---
+
