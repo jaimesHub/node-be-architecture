@@ -33,3 +33,6 @@
 
 ## SUMMARY
 
+1. Check bằng API_KEY
+2. Check permission truy cập vào HỆ THỐNG BE
+
