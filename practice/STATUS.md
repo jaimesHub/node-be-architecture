@@ -90,8 +90,8 @@ DAY 7: Xử lý ErrorHandler trong API
 
 UPDATED DATE: 27/08/2026
 
-NOTES: TBD
+NOTES: @docs/day-7.md
 
-STATUS: TBD
+STATUS: IN PROGRESS
 
-BRANCH: TBD
+BRANCH: day-7
