@@ -18,6 +18,7 @@ const SHOP_ROLES = {
 class AccessService {
     static signUp = async ({ name, email, password }) => {
         try {
+            a
             if (!name || !email || !password) {
                 return { code: 400, status: 'error', message: 'name, email, and password are required' };
             }
