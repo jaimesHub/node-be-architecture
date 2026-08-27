@@ -74,3 +74,24 @@ BRANCH: day-5
 
 ---
 
+DAY 6: Custom Dynamic Middleware for ApiKey and Permissions
+
+UPDATED DATE: 27/08/2026
+
+NOTES: @docs/day-6.md
+
+STATUS: DONE
+
+BRANCH: day-6
+
+---
+
+DAY 7: Xử lý ErrorHandler trong API
+
+UPDATED DATE: 27/08/2026
+
+NOTES: TBD
+
+STATUS: TBD
+
+BRANCH: TBD
