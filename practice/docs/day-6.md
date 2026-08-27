@@ -20,12 +20,14 @@
         ```
         x-api-key: 123456789
         ```
-      2. @src/services/apiKey.service.js: create test x-api-key 
+      2. @src/services/apiKey.service.js: create test x-api-key
         ```javascript
         // TESTING PURPOSES
         ```
   2. Check permission KEY trên có được quyền truy cập vào HỆ THỐNG BE không ?
-    1. TBD
+    1. update @src/auth/checkAuth.js
+    2. update @src/routes/index.js
+    3. test
 
 ---
 
