@@ -56,4 +56,16 @@ STEP 5: Coding finished
   - Create a description for PR first
   - User review -&gt; Reject/Approve
   - Approve -&gt; Use above research to create a new PR to merge into main branch
+  - DRAFT PROMPT
+    ```markdown
+        Đã update xong @practice/STATUS.md, @practice/docs/day-X.md. Kết hợp 2 files này kèm git commit history của branch day-X để summary lại những gì đã hoàn thành cho Day X.
+    
+        Tạo description cho PR để MR từ day-X branch vào main branch.
+    
+        Sau khi tôi review xong thì thực hiện:
+    
+        1. commit & push code hiện tại lên day-X branch 
+    
+        2. tạo PR để MR từ day-X vào main branch (sau khi APPROVED)
+    ```
 
