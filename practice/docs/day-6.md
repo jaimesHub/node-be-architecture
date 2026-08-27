@@ -6,8 +6,8 @@
 
 1. Hệ thống: Kiểm tra API có đang sử dụng đúng VERSION hay chưa ?
   1. Check bằng API_KEY
-    1. @src/models/apiKey.model.js - Lưu trữ token theo ngày-tháng
-    2. permissions: cung cấp cho nhiều kiểu user khác nhau (được add vào header khi request)
+    1. @src/models/apiKey.model.js - Lưu trữ API key, status, permissions (có timestamps createdAt/updatedAt)
+    2. permissions: định nghĩa quyền của key trong DB (client chỉ cần gửi x-api-key)
     3. middleware: @src/auth/checkAuth.js
     4. services: @src/services/apiKey.service.js
     5. update @src/routes/index.js
