@@ -1,6 +1,7 @@
 'use strict'
 
 const AccessService = require('../services/access.service');
+const { OkResponse, CreatedResponse } = require('../core/success.response');
 class AccessController {
     signUp = async (req, res, next) => {
         // TEMP COMMENT: for testing error handling
@@ -15,8 +16,14 @@ class AccessController {
         //     next(error);
         // }
 
-        const result = await AccessService.signUp(req.body);
-        return res.status(result.code).json(result);
+        // const result = await AccessService.signUp(req.body);
+        // return res.status(result.code).json(result);
+
+        new CreatedResponse({
+            message: 'Register Shop Successfully!',
+            metadata: await AccessService.signUp(req.body),
+        }).send(res);
+
     }
 }
 
