@@ -29,8 +29,9 @@ class OkResponse extends SuccessResponse {
 }
 
 class CreatedResponse extends SuccessResponse {
-    constructor({ message, statusCode = STATUS_CODE.CREATED, reasonStatusCode = REASON_STATUS_CODE.CREATED, metadata }) {
+    constructor({ message, statusCode = STATUS_CODE.CREATED, reasonStatusCode = REASON_STATUS_CODE.CREATED, metadata, options = {} }) {
         super({ message, statusCode, reasonStatusCode, metadata });
+        this.options = options;
     }
 }
 

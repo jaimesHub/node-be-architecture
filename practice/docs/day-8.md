@@ -69,9 +69,16 @@ Tìm hiểu cách tạo class SuccessResponse cho việc thống nhất ngữ c�
     }
   }
   ```
-5. add more information response for @src/controllers/access.controller.js
-  1. TBD
-6. TBD
+5. add more information response ( `options` ) for @src/controllers/access.controller.js
+  ```javascript
+          new CreatedResponse({
+              message: 'Register Shop Successfully!',
+              metadata: await AccessService.signUp(req.body),
+              options: {
+                  limit: 10,
+              }
+          }).send(res);
+  ```
 
 ---
 
