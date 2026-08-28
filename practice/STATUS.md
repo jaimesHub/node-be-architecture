@@ -100,13 +100,22 @@ BRANCH: day-7
 
 DAY 8: Make Your API Response use class
 
-UPDATED DATE: 27/08/2026
+UPDATED DATE: 28/08/2026
 
-NOTES: TBD
+NOTES: @docs/day-8.md
 
-STATUS: TODO
+STATUS:DONE
 
-BRANCH: TBD
+BRANCH: day-8
 
 ---
 
+DAY 9: Login Shop Api**** 
+
+UPDATED DATE: 28/08/2026
+
+NOTES: TBD
+
+STATUS:TODO
+
+BRANCH:TBD
