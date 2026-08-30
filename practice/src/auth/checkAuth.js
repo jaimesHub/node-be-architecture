@@ -41,7 +41,7 @@ const permission = (permissions) => {
             });
         }
 
-        console.log('>>> req.objKey.permissions:', req.objKey.permissions);
+        // console.log('>>> req.objKey.permissions:', req.objKey.permissions);
 
         const validPermissions = req.objKey.permissions.includes(permissions);
         if (!validPermissions) {

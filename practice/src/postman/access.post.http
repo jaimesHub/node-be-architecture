@@ -14,7 +14,7 @@ x-api-key: ad0fc0ee85ec0e49e5e5bc3639ae1ef73dec21571f9c9f89888329a468a777c6083ea
 ### signup not found url
 POST {{url_dev}}/shop/signup-notfoundurl
 Content-Type: application/json
-x-api-key: ad0fc0ee85ec0e49e5e5bc3639ae1ef73dec21571f9c9f89888329a468a777c6083ea43a632ef1e9d923e8c2e2b5e1621b51e00c10b67b32cd7f6350ba8b4c73
+x-api-key: {keyStore._id}
 
 {
   "name": "Shop Dev 2",
@@ -25,7 +25,7 @@ x-api-key: ad0fc0ee85ec0e49e5e5bc3639ae1ef73dec21571f9c9f89888329a468a777c6083ea
 ### signup with adding `a` at @src/services/access.service.js
 POST {{url_dev}}/shop/signup
 Content-Type: application/json
-x-api-key: ad0fc0ee85ec0e49e5e5bc3639ae1ef73dec21571f9c9f89888329a468a777c6083ea43a632ef1e9d923e8c2e2b5e1621b51e00c10b67b32cd7f6350ba8b4c73
+x-api-key: {keyStore._id}
 
 {
   "name": "Shop Dev 2",
@@ -36,9 +36,16 @@ x-api-key: ad0fc0ee85ec0e49e5e5bc3639ae1ef73dec21571f9c9f89888329a468a777c6083ea
 ### login
 POST {{url_dev}}/shop/login
 Content-Type: application/json
-x-api-key: ad0fc0ee85ec0e49e5e5bc3639ae1ef73dec21571f9c9f89888329a468a777c6083ea43a632ef1e9d923e8c2e2b5e1621b51e00c10b67b32cd7f6350ba8b4c73
+x-api-key: {keyStore._id}
 
 {
   "email": "shopdev2@example.com",
   "password": "password123"
 }
+
+### logout
+POST {{url_dev}}/shop/logout
+Content-Type: application/json
+x-api-key: {keyStore._id}
+x-client-id: {metadata.shop._id}
+authorization: {metadata.tokens.accessToken}
