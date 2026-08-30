@@ -1,8 +1,14 @@
 'use strict'
 
 const AccessService = require('../services/access.service');
-const { OkResponse, CreatedResponse } = require('../core/success.response');
+const { OkResponse, CreatedResponse, SuccessResponse } = require('../core/success.response');
 class AccessController {
+    login = async (req, res, next) => {
+        new SuccessResponse({
+            metadata: await AccessService.login(req.body),
+        }).send(res);
+    }
+
     signUp = async (req, res, next) => {
         // TEMP COMMENT: for testing error handling
         // try {

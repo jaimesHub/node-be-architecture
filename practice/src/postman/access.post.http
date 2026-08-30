@@ -32,3 +32,13 @@ x-api-key: ad0fc0ee85ec0e49e5e5bc3639ae1ef73dec21571f9c9f89888329a468a777c6083ea
   "email": "shopdev2@example.com",
   "password": "password123"
 }
+
+### login
+POST {{url_dev}}/shop/login
+Content-Type: application/json
+x-api-key: ad0fc0ee85ec0e49e5e5bc3639ae1ef73dec21571f9c9f89888329a468a777c6083ea43a632ef1e9d923e8c2e2b5e1621b51e00c10b67b32cd7f6350ba8b4c73
+
+{
+  "email": "shopdev2@example.com",
+  "password": "password123"
+}

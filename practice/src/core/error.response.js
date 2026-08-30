@@ -1,5 +1,7 @@
 'use strict'
 
+const { StatusCodes, ReasonPhrases} = require('../utils/httpStatusCode');
+
 const STATUS_CODE = {
     FORBIDDEN: 403,
     NOT_FOUND: 404,
@@ -53,10 +55,17 @@ class InternalServerError extends ErrorResponse {
     }
 };
 
+class AuthFailureError extends ErrorResponse {
+    constructor(message = ReasonPhrases.UNAUTHORIZED, statusCode = StatusCodes.UNAUTHORIZED) {
+        super(message, statusCode);
+    }
+};
+
 module.exports = {
     ConflictRequestError,
     BadRequestError,
     NotFoundError,
     ForbiddenError,
     InternalServerError,
+    AuthFailureError,
 };
