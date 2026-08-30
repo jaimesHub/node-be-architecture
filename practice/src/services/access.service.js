@@ -24,6 +24,10 @@ const SHOP_ROLES = {
 const { findByEmail } = require('./shop.service');
 
 class AccessService {
+    static logout = async (keyStore) => {
+        return await KeyTokenService.removeKeyById(keyStore._id);
+    }
+
     /**
      *  steps
      *   1. check email in DB

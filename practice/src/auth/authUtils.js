@@ -28,7 +28,7 @@ const createTokenPair = async (payload, publicKey, privateKey) => {
             if (err) {
                 console.error('>>> [Error]::verify::accessToken:: ', err);
             } else {
-                console.log('>>> [Success]::verify::accessToken:: ', decode);
+                console.log('>>> [Success]::verify::accessToken!');
             }
         });
 
@@ -50,7 +50,7 @@ const authentication = asyncHandler(async (req, res, next) => {
      */
 
     // 1.
-    const userId = req.headers[HEADER.CLIENT_ID]?.toString();
+    const userId = req.headers[HEADER.CLIENT_ID];
     if (!userId) throw new AuthFailureError('Invalid Request');
 
     // 2. + 4.
@@ -58,7 +58,7 @@ const authentication = asyncHandler(async (req, res, next) => {
     if (!keyStore) throw new NotFoundError('Not Found KeyStore');
 
     // 3.
-    const accessToken = req.headers[HEADER.AUTHORIZATION]?.split(' ')[1];
+    const accessToken = req.headers[HEADER.AUTHORIZATION];
     if (!accessToken) throw new AuthFailureError('Invalid Request');
 
     // 5. + 6.
