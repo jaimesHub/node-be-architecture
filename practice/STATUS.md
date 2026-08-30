@@ -119,3 +119,15 @@ NOTES: @docs/day-9.md
 STATUS:DONE
 
 BRANCH: day-9
+
+---
+
+DAY 10: Logout vs Authentication
+
+UPDATED DATE: 30/08/2026
+
+NOTES: @docs/day-10.md
+
+STATUS: IN PROGRESS
+
+BRANCH: day-10
