@@ -110,12 +110,12 @@ BRANCH: day-8
 
 ---
 
-DAY 9: Login Shop Api**** 
+DAY 9: Login Shop Api
 
-UPDATED DATE: 28/08/2026
+UPDATED DATE: 29/08/2026
 
-NOTES: TBD
+NOTES: @docs/day-9.md
 
-STATUS:TODO
+STATUS:DONE
 
-BRANCH:TBD
+BRANCH: day-9
