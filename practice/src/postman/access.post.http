@@ -49,3 +49,14 @@ Content-Type: application/json
 x-api-key: {keyStore._id}
 x-client-id: {metadata.shop._id}
 authorization: {metadata.tokens.accessToken}
+
+#### refresh token
+POST {{url_dev}}/shop/refresh-token
+Content-Type: application/json
+x-api-key: {keyStore._id}
+x-client-id: {metadata.shop._id}
+authorization: {metadata.tokens.accessToken}
+
+{
+  "refreshToken": {metadata.tokens.refreshToken}
+}

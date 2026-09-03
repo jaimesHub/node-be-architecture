@@ -41,6 +41,16 @@ BRANCH: TBD
 STEP 4: Let's coding
 
 - git checkout -b day-X
+- make sure mongo db is started
+  ```bash
+  colima start --vm-type=vz --cpu 2 --memory 4 --disk 20
+  
+  docker run -d --name mongo7 \
+    --restart unless-stopped \
+    -p 27017:27017 \
+    -v mongo7-data:/data/db \
+    mongo:7
+  ```
 - @day-x.md 
   - summary 
   - taking notes

@@ -134,4 +134,16 @@ BRANCH: day-10
 
 ---
 
-DAY 11: TBD
+DAY 11: Xử lý token được sử dụng trái phép và cách xử lý | RefreshToken 
+
+UPDATED DATE: 03/09/2026
+
+NOTES: @docs/day-11.md
+
+STATUS: DONE
+
+BRANCH: day-11
+
+---
+
+DAY 12: TBD
