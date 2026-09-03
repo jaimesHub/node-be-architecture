@@ -33,8 +33,7 @@ class AccessService {
         if (foundToken) {
             // decode this token to get user information
             const { userId, email } = await verifyJWT(refreshToken, foundToken.privateKey);
-            console.log('>>> verifyJWT::decode:: ', { userId, email });
-
+            // console.log('>>> verifyJWT::decode:: ', { userId, email });
             // remove all these keys by userId in keyStore
             await KeyTokenService.deleteKeyById(userId);
 
