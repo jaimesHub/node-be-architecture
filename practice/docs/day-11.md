@@ -12,11 +12,11 @@ Viết service handle refresh token 
 
 ## NOTES
 
-1. update @src/services/access.service.js : handlerRefreshToken function
-  1. based on `refreshTokenUsed` field at @src/models/keyToken.model.js
+1. update @src/services/access.service.js : handleRefreshToken function
+  1. based on `refreshTokensUsed` field at @src/models/keyToken.model.js
   2. based on `verifyJWT` function at @src/auth/authUtils.js
-2. update @src/services/keyToken.service.js: `findByRefreshTokenUsed` , `findByRefreshToken` functions
-3. update @src/auth/authUtils.js: verifyJWT function, deleteKeyById
+2. update @src/services/keyToken.service.js: `findByRefreshTokenUsed`, `findByRefreshToken`, `deleteKeyById` functions
+3. update @src/auth/authUtils.js: verifyJWT function
 4. test
   1. update @src/controllers/access.controller.js: handleRefreshToken function
   2. update @src/routes/access/index.js
