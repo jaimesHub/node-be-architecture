@@ -27,8 +27,9 @@ const { findByEmail } = require('./shop.service');
 class AccessService {
     // check token is used or not, if used => forbidden access
     static handleRefreshToken = async (refreshToken) => {
-        const foundToken = await KeyTokenService.findByRefreshTokenUsed(refreshToken);
+        if (!refreshToken) throw new BadRequestError('refreshToken is required');
 
+        const foundToken = await KeyTokenService.findByRefreshTokenUsed(refreshToken);
         if (foundToken) {
             // decode this token to get user information
             const { userId, email } = await verifyJWT(refreshToken, foundToken.privateKey);
